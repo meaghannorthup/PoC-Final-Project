@@ -4,14 +4,20 @@ class Launcher:
       self.x = self.term.width // 2  # Center of the screen
       self.y = self.term.height -1  # At the bottom of the screen
       self.angle = 2  # Default diagonal launch direction
+      self.prev_x = self.x
+      self.prev_y = self.y
 
   def location(self):
     return self.x, self.y
+    
+  def prev_location(self):
+    return (self.prev_x, self.prev_y)
 
   #def bounding_box(self):
     #return NotImplemented
 
   def move(self, direction):
+    self.prev_x, self.prev_y = self.x, self.y
     if direction == "LEFT" and self.x > 0: #Moves launcher to the left if it is within bounds
         self.x -= 1
     elif direction == "RIGHT" and self.x < self.term.width - 1: #Moves launcher to the right if it is within bounds
@@ -24,6 +30,7 @@ class Launcher:
         self.angle += 1  
 
   def respawn(self):
+    self.prev_x, self.prev_y = self.x, self.y
     #reset the ball to it's original location
     self.x = self.term.width // 2
     self.y = self.term.height -1

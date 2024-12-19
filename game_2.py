@@ -57,7 +57,7 @@ def draw(term, launcher, balls, bricks, scoreboard, fps: int = 24):
 # This async function creates the start menu
 async def start_menu(term, fps: int = 24):
     # Display the start menu
-    menu = Menu()
+    menu = Menu(term)
     previous_output = "" # This is used to prevent blinking
 
     with term.fullscreen(), term.hidden_cursor(), term.cbreak():

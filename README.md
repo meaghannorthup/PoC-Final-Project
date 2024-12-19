@@ -22,7 +22,7 @@ This project is a terminal-based game built using Python. The game includes seve
 ## How to Play
 1. Run the game:
    ```bash
-   python main.py
+   python game_2.py
    ```
 2. Use the arrow keys to navigate the menu and select options.
 3. During gameplay:
